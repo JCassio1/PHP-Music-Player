@@ -1,6 +1,10 @@
 <?php
+  require("includes/classes/Account.php");
+
+  $account = new Account();
+
   require("includes/handlers/register-handler.php");
-  require("includes/handlers/login-handler.php"); 
+  require("includes/handlers/login-handler.php");
 ?>
 
 
