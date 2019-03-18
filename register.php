@@ -37,36 +37,50 @@
     <form id="registerForm" action="register.php" method="POST">
       <h2>Crie a sua conta gratuita</h2>
       <p>
+        <?php echo $account->getError("Sorry! Username must be between 5 and 25 characters"); ?>
         <label for="Username"> Username </label>
         <input id="registerUsername" name="registerUsername" type="text" placeholder="e.g. RickyMorty" required>
       </p>
 
       <p>
+        <?php echo $account->getError("Sorry! first name must be between 5 and 25 characters"); ?>
         <label for="firstName"> First Name </label>
         <input id="firstName" name="firstName" type="text" placeholder="e.g. Ricky" required>
       </p>
 
       <p>
+        <?php echo $account->getError("Sorry! last name must be between 5 and 25 characters"); ?>
         <label for="lastName"> Last Name </label>
         <input id="lastName" name="lastName" type="text" placeholder="e.g. Morty" required>
       </p>
 
       <p>
+        <?php echo $account->getError("Your emails do not match"); ?>
+        <?php echo $account->getError("Email is not valid"); ?>
         <label for="email"> Email </label>
         <input id="email" name="email" type="email" placeholder="e.g. RickyMorty@gmail.com" required>
       </p>
 
       <p>
+        <?php echo $account->getError("Your emails do not match"); ?>
+        <?php echo $account->getError("Email is not valid"); ?>
         <label for="email2"> Confirm Email </label>
         <input id="email2" name="email2" type="email" placeholder="e.g. RickyMorty@gmail.com" required>
       </p>
 
       <p>
+      <?php echo $account->getError("Your passwords do not match"); ?>
+      <?php echo $account->getError("Your password can only contain numbers and letters"); ?>
+        <?php echo $account->getError("Apologies! Passwords must be between 5 and 25 characters"); ?>
         <label for="password"> Password </label>
         <input id="password" name="password" type="password" placeholder="password" required>
       </p>
 
       <p>
+      <?php echo $account->getError("Your passwords do not match"); ?>
+      <?php echo $account->getError("Your password can only contain numbers and letters"); ?>
+        <?php echo $account->getError("Apologies! Passwords must be between 5 and 25 characters"); ?>
+        <?php echo $account->getError("Sorry! Username must be between 5 and 25 characters"); ?>
         <label for="password2"> Confirm Password </label>
         <input id="password2" name="password2" type="password" placeholder=" Confirm password" required>
       </p>

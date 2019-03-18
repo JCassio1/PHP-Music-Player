@@ -15,12 +15,31 @@ class Account{
       $this->validateLastName($lastName);
       $this->validateEmails($email, $email2);
       $this->validatePasswords($password, $password2);
+
+      if(empty($this->errorArray) == true){
+          //Insert to debug
+          return true;
+      }
+
+      else{
+        return false;
+      }
+  }
+
+  public function getError($error){
+    if(!in_array($error, $this->errorArray)){
+      $error = "";
+    }
+
+    echo "<span class='errorMessage'>$error</span>";
   }
 
   private function validateUsername($registerUsername){
 
     if (strlen($registerUsername) > 25 || strlen($registerUsername) < 5){
-      array_push($this->$errorArray, "Sorry! Username must be between 5 and 25 characters");
+      array_push($this->errorArray, "Sorry! Username must be between 5 and 25 characters");
+
+
       return;
     }
 
@@ -65,10 +84,18 @@ class Account{
   private function validatePasswords($password, $password2){
 
     if($password != $password2){
-      array_push($this->errorArray, "Your emails do not match");
+      array_push($this->errorArray, "Your passwords do not match");
       return;
     }
 
+    if(preg_match('/[^A-Za-z0-9]/', $password)){
+      array_push($this->errorArray, "Your password can only contain numbers and letters");
+    }
+
+    if (strlen($password) > 25 || strlen($password) < 2){
+      array_push($this->errorArray, "Apologies! Passwords must be between 5 and 25 characters");
+      return;
+    }
 
   }
 
