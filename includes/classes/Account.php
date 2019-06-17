@@ -2,9 +2,12 @@
 
 class Account{
 
+  private $con;
   private $errorArray;
 
-  public function __construct(){
+  //This is the first function that gets called in this class
+  public function __construct($con){
+    $this->con = $con;
     $this->errorArray = array();
   }
 
@@ -16,9 +19,10 @@ class Account{
       $this->validateEmails($email, $email2);
       $this->validatePasswords($password, $password2);
 
+      //if this error list is empty then no error generated
       if(empty($this->errorArray) == true){
-          //Insert to debug
-          return true;
+          //Insert to db
+          return insertUserDetails($registerUsername,$firstName, $lastName, $email, $password);
       }
 
       else{
@@ -32,6 +36,17 @@ class Account{
     }
 
     echo "<span class='errorMessage'>$error</span>";
+  }
+
+  private function insertUserDetails($registerUsername,$firstName, $lastName, $email, $password){
+    $encryptedPassword = md5($password); //encrypts password using md5 encryption (Not the best but yea)
+    $profilePicture = "assets/images/ProfilePictures/rick.png";
+    $date = date(Y-m-d);
+
+    //Adding new user to database
+    $result = mysqli_query($this->con,"INSERT INTO users VALUES ('','$registerUsername','$firstName', '$lastName', '$email', '$encryptedPassword', '$date','$profilePicture')");
+
+    return $result;
   }
 
   private function validateUsername($registerUsername){

@@ -1,8 +1,9 @@
 <?php
+  require("includes/config.php");
   require("includes/classes/Account.php");
   require("includes/classes/Constants.php");
 
-  $account = new Account();
+  $account = new Account($con);
 
   require("includes/handlers/register-handler.php");
   require("includes/handlers/login-handler.php");

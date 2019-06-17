@@ -32,6 +32,7 @@
     $wasSuccessful = $account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
 
     if ($wasSuccessful == true){
+      //If successful take user to index page
       header("Location: index.php");
     }
 }
