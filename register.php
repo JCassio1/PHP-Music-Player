@@ -3,6 +3,7 @@
   require("includes/classes/Account.php");
   require("includes/classes/Constants.php");
 
+  // Login form code to initialise code
   $account = new Account($con);
 
   require("includes/handlers/register-handler.php");
@@ -23,12 +24,14 @@
     <title></title>
   </head>
   <body>
+
     <!-- Login form script -->
 
     <div id="inputContainer">
       <form id="loginForm" action="register.php" method="POST">
         <h2>Inicie a sua sessão</h2>
         <p>
+            <?php echo $account->getError(Constants::$loginFailed); ?>
             <label for="loginUsername"> Username </label>
               <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. RickyMorty" required>
         </p>
@@ -47,6 +50,7 @@
       <h2>Create your free account</h2>
       <p>
         <?php echo $account->getError(Constants::$usernameCharacters); ?>
+        <?php echo $account->getError(Constants::$usernameTaken); ?>
         <label for="Username"> Username </label>
         <input id="registerUsername" name="registerUsername" type="text" placeholder="e.g. RickyMorty" value="<?php getInputValue('registerUsername') ?>" required>
       </p>
@@ -66,6 +70,7 @@
       <p>
         <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
         <?php echo $account->getError(Constants::$emailNotValid); ?>
+        <?php echo $account->getError(Constants::$emailTaken); ?>
         <label for="email"> Email </label>
         <input id="email" name="email" type="email" placeholder="e.g. RickyMorty@gmail.com" value="<?php getInputValue('email') ?>" required>
       </p>

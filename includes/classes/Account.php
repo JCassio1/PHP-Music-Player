@@ -5,10 +5,27 @@ class Account{
   private $con;
   private $errorArray;
 
-  //This is the first function that gets called in this class
+  //This is the first function that gets called in this class (constructor)
   public function __construct($con){
     $this->con = $con;
     $this->errorArray = array();
+  }
+
+
+  public function login($registerUsername, $password){
+
+    $password = md5($password);
+
+    $loginQuery = mysqli_query($this->con, "SELECT * FROM users WHERE username = '$registerUsername' AND password = '$password'");
+
+    if (mysqli_num_rows($loginQuery) == 1){
+      return true;
+    }
+
+    else{
+      array_push($this->errorArray, Constants::$loginFailed);
+      return false;
+    }
   }
 
 
@@ -21,8 +38,9 @@ class Account{
 
       //if this error list is empty then no error generated
       if(empty($this->errorArray) == true){
-          //Insert to db
-          return insertUserDetails($registerUsername,$firstName, $lastName, $email, $password);
+        
+          //Insert to db || Remember to add "$this" to mention instance of class
+          return $this->insertUserDetails($registerUsername,$firstName, $lastName, $email, $password);
       }
 
       else{
@@ -58,7 +76,14 @@ class Account{
       return;
     }
 
-      // TODO: Check if Username already exists
+      // TODO: Check if Username already exists in database
+
+      $checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username ='$registerUsername'");
+
+      //Check if rows return zero
+      if (mysqli_num_rows($checkUsernameQuery) != 0){
+          array_push($this->errorArray, constants::$usernameTaken);
+      }
 
   }
 
@@ -93,6 +118,10 @@ class Account{
     }
 
     //// TODO: verify if email doesn't already exist
+    $checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email ='$email'");
+    if (mysqli_num_rows($checkEmailQuery) != 0){
+        array_push($this->errorArray, constants::$emailTaken);
+    }
 
   }
 

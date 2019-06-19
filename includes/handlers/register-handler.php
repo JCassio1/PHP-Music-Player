@@ -33,6 +33,8 @@
 
     if ($wasSuccessful == true){
       //If successful take user to index page
+
+      $_SESSION['userLoggedIn'] = $username;
       header("Location: index.php");
     }
 }
