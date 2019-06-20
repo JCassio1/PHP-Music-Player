@@ -1,3 +1,11 @@
+
+/*Remove borders nas laterais*/
+html, body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
 #background{
   background-color: #000;
   background-image: url(../images/AngolaFlix-background.jpg);
@@ -6,4 +14,97 @@
          display:table;
      height: 100%;
      width: 100%;
+}
+
+/*The star means all inside*/
+#containerForLogin * {
+  color: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif; /*my backup fonts*/
+    line-height: 1em;
+    box-sizing: border-box; /*to always take into account the width and heigh*/
+}
+
+/*Start of login placeholder*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #fff;
+}
+/*end of login placeholder*/
+
+#containerForLogin{
+    width: 80%;
+    margin: 0 auto; /*means top and bottom will have value of zero. while left and right will have auto*/
+    position: relative; /*relative to its parent*/
+    max-width: 1024px; /*limit it to 1024 pixels*/
+}
+
+
+#inputContainer{
+    width: 400px;
+    padding: 45px; /*Padding is the space within the container while marging is the space outside of it*/
+    float:left;
+    border-right: 1px solid #999; /*The line that separates login from register form*/
+
+}
+
+#inputContainer h2{
+  text-align: center;
+}
+
+/*Will affect all text fields in register page (with their types) */
+#inputContainer input[type="text"],
+#inputContainer input[type="password"],
+#inputContainer input[type="email"]{
+  display: block; /*only this field in this line*/
+background-color: transparent;
+border: 0;
+border-bottom: 1px solid #fff;
+height: 27px;
+line-height: 27px;
+width: 100%;
+}
+
+#inputContainer label{
+color: #a0a0a2;
+font-size: 15px;
+margin-top: 20px;
+}
+
+#inputContainer button{
+  background-color: transparent;
+border: 1px solid;
+border-radius: 350px;
+color: #fff;
+display: block;
+font-size: 14px;
+letter-spacing: 1px;
+font-size: 14px;
+margin: 2;
+margin: 20px auto;
+height: 41px;
+width: 100%;
+}
+
+/* What happens when user hovers over a button*/
+#inputContainer button:hover{
+  cursor: pointer;
+}
+
+.userWithAccount span,
+.userWithoutAccount span {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.userWithAccount,
+.userWithoutAccount{
+  text-align: center;
 }
