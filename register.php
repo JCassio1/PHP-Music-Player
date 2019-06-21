@@ -22,8 +22,32 @@
     <meta charset="utf-8">
     <title>Welcome to JD Music</title>
     <link rel="stylesheet" href="assets/css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!--JQuery reference from Google-->
+    <script src="assets/js/register.js"></script>
   </head>
   <body>
+
+<!-- Action to when a button is clicked -->
+    <?php
+    if (isset($_POST['registerButton'])) {
+        echo '<script>
+                $(document).ready(function(){ // loads as soon as the document is ready
+                  $("#loginForm").hide();
+                  $("#registerForm").show();
+              });
+            </script>';
+    }
+
+    else{
+      echo '<script>
+            $(document).ready(function(){ // loads as soon as the document is ready
+              $("#loginForm").show();
+              $("#registerForm").hide();
+            });
+          </script>';
+    }
+
+     ?>
 
     <div id="background">
 
@@ -103,7 +127,7 @@
             <button type="submit" name="registerButton">Registrar</button>
 
             <div class="userWithoutAccount">
-              <span id="hideregister">Have an account? Sign in here</span>
+              <span id="hideRegister">Have an account? Sign in here</span>
             </div>
           </form>
 

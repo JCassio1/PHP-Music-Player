@@ -108,3 +108,9 @@ width: 100%;
 .userWithoutAccount{
   text-align: center;
 }
+
+/* To avoid form shown when switching between forms */
+#registerForm,
+#loginForm{
+  display: none;
+}
