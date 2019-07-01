@@ -1,3 +1,7 @@
+/* In case of errors remeber: Have I commented correctly?*/
+/* In case of errors remeber: Have I added a semicolon?*/
+/* Also check different cursor types*/
+
 
 /*Remove borders nas laterais*/
 html, body{
@@ -9,7 +13,7 @@ html, body{
 #background{
   background-color: #000;
   background-image: url(../images/AngolaFlix-background.jpg);
-  background-position: center
+  background-position: center;
   background-size:cover;
   display:table;
   height: 100%;
@@ -18,7 +22,7 @@ html, body{
 
 /*The star means all inside*/
 #containerForLogin * {
-  color: #fff;
+    color: #fff;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif; /*my backup fonts*/
     line-height: 1em;
     box-sizing: border-box; /*to always take into account the width and heigh*/
@@ -63,19 +67,22 @@ html, body{
 #inputContainer input[type="text"],
 #inputContainer input[type="password"],
 #inputContainer input[type="email"]{
-  display: block; /*only this field in this line*/
+  display: block; /*Adds a new line to a field*/
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid #fff;
   height: 27px;
   line-height: 27px;
   width: 100%;
+  font-size: 16px;
 }
 
 #inputContainer label{
 color: #a0a0a2;
 font-size: 15px;
-margin-top: 20px;
+margin-top: 30px;
+margin-bottom: 10px;
+display: block; /*You forgot this to add a space between other elements*/
 }
 
 #inputContainer button{
@@ -100,7 +107,7 @@ margin-top: 20px;
   color: black;
   border-color: black;
 
-  transition: background-color 0.55s; //transitions slowly to white
+  transition: background-color 0.55s; /*transitions slowly to white*/
 }
 
 .userWithAccount span{
@@ -153,5 +160,11 @@ margin-top: 20px;
   font-size: 17;
   list-style-type: none;
   padding: 8px 33px;
-  background: url(../images/icons/ouvinte.png) no-repeat 0 0; //0 and 0 refers to x & y position of the icon
+  background: url(../images/icons/ouvinte.png) no-repeat 0 0; /*0 and 0 refers to x & y position of the icon*/
+}
+
+#inputContainer .errorMessage{ /*remeber about overriding class*/
+  color: #E9CB8F;
+  font-size: 17px;
+  display: block; /*add a line-break after the element*/
 }
