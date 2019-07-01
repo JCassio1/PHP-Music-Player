@@ -130,8 +130,18 @@
               <span id="hideRegister">Have an account? Sign in here</span>
             </div>
           </form>
-
         </div>
+
+        <div id="TextoDeLogin">
+            <h1>Access JD Music for the latest and best songs</h1>
+            <h2>Variedades dos seus sons preferidos</h2>
+            <ul>
+                <li>Listen to the best songs</li>
+                <li>Follow your favorite artists</li>
+                <li>Create your playlists</li>
+            </ul>
+        </div>
+
       </div> <!-- background div close -->
   </div> <!--  div containerForLogin close -->
   </body>
