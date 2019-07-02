@@ -4,8 +4,8 @@
 
   session_start(); //initiate method to keep track of users through pages in website
 
-  session_destroy(); //destroy the session
-  
+  //session_destroy(); //destroy the session
+
   $timezone = date_default_timezone_set("Europe/Lisbon"); //my server timezone
 
   $con = mysqli_connect("localhost","root","","jdmusic"); //database credentials
