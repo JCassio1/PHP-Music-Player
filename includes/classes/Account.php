@@ -38,7 +38,7 @@ class Account{
 
       //if this error list is empty then no error generated
       if(empty($this->errorArray) == true){
-        
+
           //Insert to db || Remember to add "$this" to mention instance of class
           return $this->insertUserDetails($registerUsername,$firstName, $lastName, $email, $password);
       }

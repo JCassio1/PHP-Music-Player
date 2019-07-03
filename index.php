@@ -27,7 +27,11 @@ else{
           <div id="playingBar">
 
             <div id="nowPlayingLeftSide">
-
+              <div class="content">
+                <span class="albumLink">
+                  <img src="https://i1.sndcdn.com/artworks-000235926242-q4hojq-t500x500.jpg" class="albumArtwork" alt="nowPlaying">
+                </span>
+              </div>
             </div>
 
             <div id="nowPlayingCenterSide">
@@ -59,6 +63,22 @@ else{
                     <button class="controlButton repeat" title="repeat button">
                       <img src="assets/images/icons/repeat.png" alt="repeat">
                     </button>
+                  </div>
+
+                  <div class="playbackBar">
+                    <span class="progressTime current">0.00</span>
+
+                    <div class="progressBar">
+
+                      <div class="progressBarBackground">
+                        <div class="progress">
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <span class="progressTime remaining">0.00</span>
                   </div>
 
                 </div>
