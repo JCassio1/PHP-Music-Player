@@ -7,6 +7,12 @@ html, body{ /*Addressed the gap in the player*/
   height: 100%;
 }
 
+/* This will set the default font style across the website */
+* {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: white;
+}
+
 #playingBarContainer{
   width: 100%;
   background-color: #282828;
@@ -25,6 +31,11 @@ html, body{ /*Addressed the gap in the player*/
 #nowPlayingLeftSide, #nowPlayingRightSide{
   width: 30%;
   min-width: 180px;
+}
+
+#nowPlayingRightSide {
+  position: relative;
+  margin-top: 16px;
 }
 
 #nowPlayingCenterSide{
@@ -100,4 +111,40 @@ html, body{ /*Addressed the gap in the player*/
   margin-right: 15px;
   float: left;
   background-size: cover; /*Make image as bigger as possible while obeying contraints*/
+}
+
+.trackInformation{
+  display: table;
+}
+
+#nowPlayingLeftSide .trackInformation .trackName{
+  display: inline-block;
+  margin: 6px 0;
+  width: 100%;
+}
+
+#nowPlayingLeftSide .trackInformation .artistName span {
+  font-size: 12px;
+  color: wheat;
+}
+
+.volumeBar{
+  width: 180px;
+  position: absolute;
+  right: 0;
+}
+
+.volumeBar .progressBar {
+  width: 120px;
+}
+
+#nowPlayingRightSide .volumeBar .controlButton {
+  background-color: transparent;
+  border: none;
+  vertical-align: middle;
+}
+
+#topContainer {
+  min-height: 100%;
+  min-width: 100%;
 }
