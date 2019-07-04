@@ -7,6 +7,12 @@ html, body{ /*Addressed the gap in the player*/
   height: 100%;
 }
 
+body {
+  background: #2f2f2f;
+  font-size: 15px;
+  min-width: 720px;
+}
+
 /* This will set the default font style across the website */
 * {
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -198,4 +204,14 @@ html, body{ /*Addressed the gap in the player*/
   right: 1;
   top: 7;
   width: 25px;
+}
+
+#mainViewContainer{
+  background: #2f2f2f;
+  font-size: 15px;
+  min-width: 720px;
+}
+
+#mainContent{
+  padding: 0px 20px;
 }
