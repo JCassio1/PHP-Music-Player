@@ -1,40 +1,16 @@
-<?php
-require("includes/config.php"); //include in order to start session
-//session_destro(); //method to logout manually (temporary solution [Will cause issues at login if uncommented])
-if (isset($_SESSION['userLoggedIn'])){
-  $userLoggedIn = $_SESSION['userLoggedIn'];
-}
-//If session does not start then user cannot access this page
-else{
-  header("Location: register.php");
-}
-?>
+<?php include("includes/header.php"); ?>
 
-  <html lang="en" dir="ltr">
-    <head>
-      <meta charset="utf-8">
-      <title>JDMusic</title>
-      <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-      <div id="mainContainer">
+<h1 class="pageHeadingBig">you Might Also Like</h1>
 
-        <div id="topContainer">
+<div class="gridViewContainer">
+  <?php $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND()");
 
-          <?php include 'includes/navBarContainer.php'; ?>
+  //loops through each row in the table
+  while ($row = mysqli_fetch_array($albumQuery)) {
+    echo $row = $row['title'] . "<br>"; //this adds a new line
+  }
 
-          <div id="mainViewContainer">
+  ?>
+</div>
 
-            <div id="mainContent">
-
-            </div>
-
-          </div>
-
-        </div>
-
-          <?php include 'includes/nowPlayingBar.php'; ?>
-
-      </div>
-    </body>
-  </html>
+<?php include("includes/footer.php"); ?>
