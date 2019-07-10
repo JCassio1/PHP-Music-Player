@@ -1,5 +1,9 @@
 /*Remeber to link me in index page*/
 
+/* Add following features: change md5 hash function, dark mode, Queue list, liked list */
+
+
+
 
 html, body{ /*Addressed the gap in the player*/
   padding: 0;
@@ -17,6 +21,7 @@ body {
 * {
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   color: white;
+  letter-spacing: 1px;
 }
 
 #playingBarContainer{
@@ -209,10 +214,43 @@ body {
 #mainViewContainer{
   background: #2f2f2f;
   font-size: 15px;
-  min-width: 720px;
   margin-left: 220px;
+  padding-bottom: 90px;
+  width: calc(100%-220px);
+  /* min-width: 720px;*/
 }
 
 #mainContent{
   padding: 0px 20px;
+}
+
+.pageHeadingBig{
+  padding: 20px;
+  text-align: center;
+}
+
+.gridViewItem{
+    display: inline-block ; /*add everything together in the same line*/
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem img {
+    width: 100%
+}
+
+.gridViewInformation {
+  font-weight: 300;
+  text-align: center;
+  padding: 5px 0;
+  text-overflow: ellipsis;/*adds dots if album name is too long*/
+  overflow: hidden; /*Hides content that goes outside the bounds*/
+  white-space: nowrap; /*Does not wrap text under album artwork*/
+}
+
+.gridViewItem a {
+  text-decoration: none;
 }

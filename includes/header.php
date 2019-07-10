@@ -1,5 +1,6 @@
 <?php
 require("includes/config.php"); //include in order to start session
+require("includes/classes/Artist.php");
 //session_destro(); //method to logout manually (temporary solution [Will cause issues at login if uncommented])
 if (isset($_SESSION['userLoggedIn'])){
   $userLoggedIn = $_SESSION['userLoggedIn'];
