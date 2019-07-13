@@ -2,6 +2,7 @@
 require("includes/config.php"); //include in order to start session
 require("includes/classes/Artist.php");
 require("includes/classes/Album.php");
+require("includes/classes/Song.php");
 
 
 //session_destro(); //method to logout manually (temporary solution [Will cause issues at login if uncommented])

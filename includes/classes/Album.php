@@ -40,9 +40,24 @@ class Album{
     }
 
     public function getNumberOfsongs(){
-      $query = mysqli_query($this->con, "SELECT * FROM songs WHERE album='$this->id'");
+      $query = mysqli_query($this->con, "SELECT count(*) FROM songs WHERE album='$this->id'");
 
       return mysqli_num_rows($query);
+    }
+
+    public function getSongIDs(){
+
+      $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id' ORDER BY albumOrder ASC");
+
+      $array = array();
+
+      //Loop that iterates through array using each row
+      while($row = mysqli_fetch_array($query)) {
+        array_push($array, $row['id']);
+      }
+
+      return $array;
+
     }
 }
 ?>

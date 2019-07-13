@@ -4,6 +4,7 @@ class Artist{
 
     private $con;
     private $id;
+    private $test = "shit";
 
     //This is the first function that gets called in this class (constructor)
     public function __construct($con, $id){
