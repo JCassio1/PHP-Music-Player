@@ -1,6 +1,9 @@
 function  audio(){
 
   this.currentlyPlaying;
-  this.audio = document.create.element('audio');
+  this.audio = document.createElement('audio');
 
+  this.setTrack = function(src){
+    this.audio.src = src
+  }
 }

@@ -22,8 +22,13 @@ else{
       <meta charset="utf-8">
       <title>JDMusic</title>
       <link rel="stylesheet" type="text/css" href="style.css">
+
+      <script src="assets/js/script.js">
+      </script>
     </head>
     <body>
+
+
       <div id="mainContainer">
 
         <div id="topContainer">
