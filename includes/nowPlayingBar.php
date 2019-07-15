@@ -12,7 +12,39 @@
  ?>
 
  <script>
-   console.log(<?php echo $jsonArray; ?>);
+  $(document).ready(function() {
+    currentPlaylist = <?php echo $jsonArray; ?>;
+    audioElement = new Audio();
+    setTrack(currentPlaylist[0], currentPlaylist, false);
+  });
+
+  function setTrack(trackID, newPlaylist, play) {
+
+    $.post("includes/handlers/ajax/getSongJSON.php", {songID: trackID}, function(data){
+
+      var track = JSON.parse(data);
+
+      console.log(track);
+      audioElement.setTrack(track.path);
+      audioElement.play();
+    })
+
+    if(play ==  true){
+      audioElement.play();
+    }
+  }
+
+  function playSong(){
+    $(".controlButton.play").hide();
+    $(".controlButton.pause").show();
+    audioElement.play();
+  }
+
+  function pauseSong(){
+    $(".controlButton.play").show();
+    $(".controlButton.pause").hide();
+    audioElement.pause();
+  }
  </script>
 
 <div id="playingBarContainer">
@@ -54,11 +86,11 @@
                 <img src="assets/images/icons/previous.png" alt="previous">
               </button>
 
-              <button class="controlButton play" title="play button">
+              <button class="controlButton play" title="play button" onclick="playSong()">
                 <img src="assets/images/icons/play.png" alt="play">
               </button>
 
-              <button class="controlButton pause" title="pause button" style="display:none">
+              <button class="controlButton pause" title="pause button" style="display:none" onclick="pauseSong()">
                 <img src="assets/images/icons/pause.png" alt="pause">
               </button>
 

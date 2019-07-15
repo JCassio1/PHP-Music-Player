@@ -41,7 +41,7 @@ $artist = $album->getArtist();
           <div class='trackCount'>
               <img class='play' src='assets/images/icons/play.png'>
               <span class='trackNumber'>
-                $i;
+                $i
               </span>
           </div>
 
