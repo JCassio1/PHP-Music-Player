@@ -24,9 +24,27 @@
 
       var track = JSON.parse(data);
 
-      console.log(track);
-      audioElement.setTrack(track.path);
-      audioElement.play();
+      $(".trackName span").text(track.title);
+
+      $.post("includes/handlers/ajax/getArtistJSON.php", {artistID: track.artist}, function(data){
+
+        var artist = JSON.parse(data);
+
+        $(".artistName span").text(artist.name);
+
+      });
+
+      $.post("includes/handlers/ajax/getAlbum.php", {albumID: track.album}, function(data){
+
+        var album = JSON.parse(data);
+
+        $(".albumLink img").attr("src", album.artworkPath);
+
+      });
+
+
+      audioElement.setTrack(track);
+      playSong();
     })
 
     if(play ==  true){
@@ -35,6 +53,15 @@
   }
 
   function playSong(){
+
+    if(audioElement.audio.currentTime == 0){
+      
+      $.post("includes/handlers/ajax/updatePlays.php", {songID: audioElement.currentlyPlaying.id});
+
+      console.log("Function called");
+    }
+
+
     $(".controlButton.play").hide();
     $(".controlButton.pause").show();
     audioElement.play();
@@ -54,17 +81,17 @@
       <div id="nowPlayingLeftSide">
         <div class="content">
           <span class="albumLink">
-            <img src="https://i1.sndcdn.com/artworks-000235926242-q4hojq-t500x500.jpg" class="albumArtwork" alt="nowPlaying">
+            <img src="" class="albumArtwork" alt="nowPlaying">
           </span>
 
           <div class="trackInformation">
 
             <span class="trackName">
-              <span> Mandume</span>
+              <span></span>
             </span>
 
             <span class="artistName">
-              <span> Milly Mizzy</span>
+              <span> </span>
             </span>
 
           </div>
