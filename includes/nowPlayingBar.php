@@ -16,7 +16,35 @@
     currentPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
     setTrack(currentPlaylist[0], currentPlaylist, false);
+
+    $(".playbackBar .progressBar").mousedown(function(){
+      mouseDown = true;
+    });
+
+    $(".playbackBar .progressBar").mousemove(function(e){
+      if(mouseDown == true) {
+        //set time of the song where mouse is dragged
+        timeFromOffset(e, this); //'this' refers function that called the function
+      }
+    });
+
+    $(".playbackBar .progressBar").mouseup(function(e){
+        //set time of the song where mouse is dragged
+        timeFromOffset(e, this); //'this' refers function that called the function
+    });
+
+    $(document).mouseup(function(){
+      mouseDown = false;
+    });
+
+
   });
+
+  function timeFromOffset(mouse, progressBar){
+      var percentage = mouse.offsetX / $(progressBar).width() * 100; 
+      var seconds = audioElement.audio.duration * (percentage / 100);
+      audioElement.setTime(seconds);
+  }
 
   function setTrack(trackID, newPlaylist, play) {
 
@@ -55,7 +83,7 @@
   function playSong(){
 
     if(audioElement.audio.currentTime == 0){
-      
+
       $.post("includes/handlers/ajax/updatePlays.php", {songID: audioElement.currentlyPlaying.id});
 
       console.log("Function called");
